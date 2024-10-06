@@ -158,3 +158,59 @@ When you first download and install prometheus, you will see a defualt config fi
 - **`scrape_configs`:** this defines what resources prometheus monitors.
 
 ### Alert Manager
+How does prometheus trigger alerts that are defined by rules and who recieves them ?
+
+![image](./screenshot/alert%20manager.jpg)
+
+prometheus has a component called `alert manager` that is responsible for fireing alerts by different channels; could be emails, could be slack channel, or some other notification clients.
+
+Prometheus server will read the alert rules configured in the prometheus.yaml config file. if the condition in that rule is met, an alert gets fired through that configured channel.
+
+### Prometheus Data Storage
+
+where does prometheus store all this data that it collects and aggregates? and how can other systems access this data?
+
+![image](./screenshot/prometheus%20data%20storage.jpg)
+
+prometheus stores the metrics data on disk (SSD/HDD); that includes a local on-disk time series database and can optionally integrate with remote storage systems. The data is stored in a custom time series format. and because of that you cant write prometheus data directly into a relational database. 
+
+once you've collected the metrics, prometheus also let's you querry the metrics data on target, through it's server api using `promQL Querry Language`
+
+### PromQL Querry Language
+You can use the prometheus Web UI (Dashboard) to ak the prometheus server via promQL to for example show the status of a particular target. or you can use more powerful data visualization tool like Grafana to display the data. ***under the hood, grafana also uses promQL to get data out of promethues for visualization*** 
+
+***`while prometheus is a monitoring tool, Grafana is a powerful data visulization tool`***
+
+![image](./screenshot/grafana.jpg)
+
+![image](./screenshot/promql.jpg)
+With visualization tool such as grafana, instead of writting promQL querries to extract data from prometheus server, you can use grafana UI to create dashboards which can under the hood (in the background) use PromQL to querry the data against the promthues server that you want to display.
+
+
+### Characteristics of Prometheus
+
+1. An important xtics of Prometheus is that it is designed to be reliable even when other systems have an outage so you can, diagnose the problems and fix them. 
+
+2. Each prometheus server is stand alone and self containing; meaning it doesnt depend on network storage or other remote services.
+
+3. It's meant to wor even when other parts of the infrastructure are broken
+
+4. You do not need to set up extensive infrastructure ot use it.
+
+### Dissadvantage of prometheus
+
+1. Prometheus can ne difficult to scale.
+
+If we have a set-up of hundreds or thousands of nodes where we need to scale prometheus, as an alternative, we can build what is called a `prometheus federation`
+
+![](./screenshot/prometheus%20federation.jpg)
+
+Prometheus federation allows a prometheus server to scrape data from other prometheus servers.
+
+### Prometheus with Docker and Kubernestes
+
+Prometheus is fully compatible to Docker and Kubernetes.
+
+Prometheus components are available as docker images and also can be easily be deployed in Kubernetes and other container environments.
+
+Prometheus monitors K8s nodes out of the box. this means once it is deployed on K8s, its starts gathering metrics data on each K8s node server without any extra configuration. 
