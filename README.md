@@ -31,10 +31,11 @@ Prometheus makes searching problem more efficient through constantly
 - alerts maintainers as soon as a service crashes,
 - identifies problems before they even occure by allerting systems administrators responsible for that infrastructure so they can quickly look into the root cause of what could cause the system to fail.
 
-Prometheus as a monitoring tool checks
-1. checks memory usage on each server; to see if the server is running out of memory.
-2. suddenly you stop seeing logs for your application because elasticsearch doesnt accept any new logs because the server ran out of disk space or elasticsearch ran out of disk space that was allocated to it.
-3. In a thightly coupled architecture, a service might experience an unusual load or spike in traffic which might cause it  break or slow down and starts sending error messages to all other services that are tightly coupled to architecture, thereby causing the entire architecture to break or slow down. 
+## Prometheus as a monitoring tool does the following.
+1. **Memmory utilization:** checks memory usage on each server to see if the server is running out of memory.
+2. **Disk space:** suddenly you stop seeing logs for your application because elasticsearch doesnt accept any new logs because the server ran out of disk space or elasticsearch ran out of disk space that was allocated to it.
+3. **Spikes:** In a thightly coupled architecture, a service might experience an unusual load or spike in traffic which might cause it to break or slow down and starts sending error messages to all other services that are tightly coupled to the architecture, thereby causing the entire architecture to break or slow down. 
+4. **RAM**
 
 ## Prometheus Architecture
 **How does prometheus work?**
@@ -58,12 +59,13 @@ that could be anything such as
 
 ***`these things that prometheus monitors are called targets.`***
 
-Each targets has units of monitoring. For a linux server target, it could be a;
--  current CPU status
+Each targets has units of monitoring. For a linux server (monitoring at infrastructure level) target, could be;
+- current CPU status
 - Its memory usage
 - disk space usage.
+- network
 
-For an application, these targets could be;
+For an application (monitoring at application level), these targets could be;
 - number of exceptions
 - number of requests.
 - request count
