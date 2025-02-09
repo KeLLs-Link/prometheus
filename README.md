@@ -19,7 +19,7 @@ Modern day DevOps is becoming more and more complex to handle manually and there
 
 Maintaining such setups to run smoothly without application downtime can be very challenging.
 Imagine having such a complex archtecture with loads of servers distributed accross different locations and you have no insight of what is happening on hardware level or application level like;
-- erros
+- errors
 - response latency
 - hardware down
 - server overload and running out of resource
