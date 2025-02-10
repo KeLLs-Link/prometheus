@@ -37,3 +37,26 @@ There are several moving parts and components in prometheus monitoring stack. Ho
  ![](./screenshot/poda.jpg)
  ![image](./screenshot/secretes.jpg)
  ![image](./screenshot/Custom%20Resource%20Definition.jpg)
+
+ ##Components inside Premetheus, Alert Manager, Operator.
+
+ The two most important things you have to understand when working with prometheus monitoring is 
+ 1. How to add and adjust alert rules
+ 2. How to adjust prometheus configuration.
+ ![Image](./screenshot/hh.jpg)
+
+ ### **Data Visualization**
+ ![image](./screenshot/what%20do%20you%20want%20to%20monitor.jpg)
+ 
+ When you are configuring monitoring for your application or cluster, ***"you have to decide what you want to observe, also, what do you want to monitor?"*** so you can react and fix the issue accordingly, so your cluster doesnt break. 
+
+ Another questison you should ask is ***"how do we get this information, using the monitoring stack that we just deployed in our cluster"***? 
+ 
+ We need some visibility of the data that shows us exactly when there's a CPU spike or my application is getting too many connections or too many requests, or my cluster is runnig out of storage, etc. we want to see what data we have available form the cluster that we can observe.
+
+ So basically what components are we monitoring, what kind of data are we getting from this component? so we need to see this information somewhere in a human readable way.
+
+ ![image](./screenshot/info.jpg)
+
+ ### **Prometheus UI**
+ 
