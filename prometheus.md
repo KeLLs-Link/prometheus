@@ -35,4 +35,5 @@ There are several moving parts and components in prometheus monitoring stack. Ho
  ![screenshots](./screenshot/deployments.jpg)
  ![task](./screenshot/Daemon%20sets.jpg)
  ![](./screenshot/poda.jpg)
- 
+ ![image](./screenshot/secretes.jpg)
+ ![image](./screenshot/Custom%20Resource%20Definition.jpg)
