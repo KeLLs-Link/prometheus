@@ -73,15 +73,15 @@ For an application (monitoring at application level), these targets could be;
 
 ***`The unit you would like to monitor for a specific target is called a metric.`***
 
-these matrics are what get saved in prometheus database component (Time series Database). 
+these matrics are what gets saved in prometheus database component (Time Series Database). 
 
-prometheus then defines human readable, text based format for this metrics. metrics entries or daa=ta have types and attributes to increase it's readability.
+prometheus then defines human readable, text based format for this metrics. metrics entries or data have types and attributes to increase it's readability.
 
 `HELP`: offers description of what the metrics is about.
 
 `TYPE`: this is one 3 metrics types 
 
-For metrics types about how many times something happened, example; number of exceptions or request an application recieved, is a represented by a **`counter type metrics`**;
+For metrics types about how many times something happened, example; number of exceptions or request an application recieved, is represented by a **`counter type metrics`**;
 
 Metrics that goes up and down can be represented by a **`gauge`**; example, if you want to know the current value of cpu utilization at a particular time. or what is the current value of disk storage space. or what is the number of concurrent request at that momment.
 
@@ -155,11 +155,11 @@ When you first download and install prometheus, you will see a defualt config fi
 
 - **`global`:** this value determines how often prometheus will scrape it's target.
 
-- **`rule_file`:** this defines rules for aggregating metrics value or creating alerts when conditions are met.
+- **`rule_file`:** this defines rules for aggregating metrics value or creating alerts when conditions are met; like CPU usage reached 80%.
 
-- **`scrape_configs`:** this defines what resources prometheus monitors.
+- **`scrape_configs`:** this determines what resources prometheus monitors. this is where you define the targets.
 
-### Alert Manager
+### **Alert Manager**
 How does prometheus trigger alerts that are defined by rules and who recieves them ?
 
 ![image](./screenshot/alert%20manager.jpg)
@@ -182,6 +182,8 @@ once you've collected the metrics, prometheus also let's you querry the metrics 
 You can use the prometheus Web UI (Dashboard) to ak the prometheus server via promQL to for example show the status of a particular target. or you can use more powerful data visualization tool like Grafana to display the data. ***under the hood, grafana also uses promQL to get data out of promethues for visualization*** 
 
 ***`while prometheus is a monitoring tool, Grafana is a powerful data visulization tool`***
+
+![screenshot](./screenshot/data%20visualizaation.jpg)
 
 ![image](./screenshot/grafana.jpg)
 
